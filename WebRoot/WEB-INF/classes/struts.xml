@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- spring托管 -->
+	<!--   
+        指定spring框架的装配模式，装配方式有: name, type, auto, and constructor (name   
+        是默认装配模式)   
+    -->  
+	<constant name="struts.objectFactory" value="spring" />
+	
+	<!-- 指定Web应用的默认编码集,相当于调用HttpServletRequest的setCharacterEncoding方法 -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    
+    <!-- 该属性指定Struts 2文件上传中整个请求内容允许的最大字节数 -->  
+    <constant name="struts.multipart.maxSize" value="2097152" />
+    
+    <!-- 设置是否支持动态方法调用，true为支持，false不支持. -->  
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	
+	<package name="user" namespace="/" extends="struts-default">
+		<action name="user" class="userAction" method="${1}">
+			<result name="getUsers">/pages/MyJsp.jsp</result>
+		</action>
+	</package>
+	
+</struts>    
